@@ -8,7 +8,7 @@ library("FNN")
 library("lattice")
 library("caret")
 
-#need to change mpg to int
+#need to change mpg to integer datatype and narrowing data to just German car brands
 
 cars_c = read_csv("cars_c.csv")
 
@@ -44,8 +44,7 @@ manual_trans = as.numeric(manual_trans)
 cars_c$is_automatic <- auto_trans
 cars_c$is_manual <- manual_trans
 
-
-#fuck that now we do our mlr!
+#Multiple Linear Regression with all factors
 
 cars_c = cars_c %>%
   mutate(fuel_type_gasoline= if_else(fuel_type=="Gasoline",1,0),
